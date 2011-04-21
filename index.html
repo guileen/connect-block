@@ -1,1 +1,80 @@
-My Page
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>connect-block : best browser compatible solution.</title>
+    <style>
+      #block {
+        font-size: 50px;
+        text-align: center;
+        margin: 20px;
+        background: black;
+        color: white;
+      }
+      a{
+        text-decoration:none;
+      }
+      #block a, #block a:visited {
+        color: yellow;
+      }
+      #block a:hover {
+        color: #ff00ff;
+      }
+      .ribbon {
+        background-color: #a00;
+        overflow: hidden;
+        /* top left corner */
+        position: absolute;
+        /* left: -3em; */
+        right: -3em;
+        top: 2.5em;
+        /* 45 deg ccw rotation */
+        /*
+        -moz-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        */
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        /* shadow */
+        -moz-box-shadow: 0 0 1em #888;
+        -webkit-box-shadow: 0 0 1em #888;
+      }
+      .ribbon a {
+        border: 1px solid #faa;
+        color: #fff;
+        display: block;
+        font: bold 81.25% 'Helvetiva Neue', Helvetica, Arial, sans-serif;
+        margin: 0.05em 0 0.075em 0;
+        padding: 0.5em 3.5em;
+        text-align: center;
+        text-decoration: none;
+        /* shadow */
+        text-shadow: 0 0 0.5em #444;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Best browser compatible solution</h1>
+    <div class="ribbon">
+      <a href="https://github.com/guileen/connect-block">Fork me on GitHub!</a>
+    </div>
+    <pre>
+    var block = require('connect-block');
+    connect(
+        block('IE8'), //you can use IE, IE6, IE7, IE8, IE9, IE10 or RegExp
+        function(req, res){
+          res.end('You have passed.');
+        }
+    ).listen(3000);
+    </pre>
+    If your browser is IE6-IE8, you will got this screen.
+    <div id="block">
+      <p>Sorry! Your browser is not supported.</p>
+      <p style="font-size: 80px">Choose another browser</p>
+      <p>
+      <a href="http://www.google.com/chrome/">Chrome<!--chrome icon--></a> | 
+      <a href="http://www.mozilla.com/en-US/firefox/fx/">Firefox<!--chrome icon--></a> |
+      <a href="http://www.apple.com/safari/">Safari<!--chrome icon--></a>
+      </p>
+    </div>
+  </body>
+</html>
