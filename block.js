@@ -29,7 +29,7 @@ module.exports = function(agent){
       } catch (e){
         if(lang.length > 2){
           result = loadPage(lang.substring(0,2));
-        } else if(lang != 'en'){
+        } else if(lang !== 'en'){
           result = loadPage('en');
         }
       }
@@ -39,8 +39,7 @@ module.exports = function(agent){
   }
 
   function findPage(languages) {
-    console.log('find '+languages);
-    languages = languages.split(',');
+    languages = languages.toLowerCase().split(',');
     for(var i = 0; i < languages.length; i++){
       var lang = languages[i].replace(/;.+/,''),
           result = loadPage(lang);
@@ -51,7 +50,10 @@ module.exports = function(agent){
 
   return function(req, res, next) {
     if(req.headers['user-agent'].match(pattern)) {
-      res.end(findPage(req.headers['accept-language']));
+      res.writeHead(406, 'Agent is not supported', {
+          'content-type' : 'text/html; charset=utf-8'
+      })
+      res.end(findPage(req.headers['accept-language']), 'utf-8');
     } else {
       next();
     }
