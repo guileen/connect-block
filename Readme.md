@@ -11,20 +11,9 @@ A middleware for [connect](https://github.com/senchalabs/connect)
         }
     ).listen(3000);
 
-If you you browse this page in IE6,IE7,IE8 you will got
+If your browse this page in IE6,IE7,IE8 you will got:
 
-<style>
-  .blockagent a{
-    text-decoration:none;
-  }
-  .blockagent a, .blockagent a:visited {
-    color: yellow;
-  }
-  .blockagent a:hover {
-    color: #ff00ff;
-  }
-</style>
-<div class="blockagent" style="font-size: 20px; text-align: center; background: black; color: white;" >
+<div>
   <p>Sorry! Your browser is not supported.</p>
   <p style="font-size: 30px">Choose another browser</p>
   <p>
@@ -33,3 +22,5 @@ If you you browse this page in IE6,IE7,IE8 you will got
   <a href="http://www.apple.com/safari/">Safari<!--chrome icon--></a>
   </p>
 </div>
+
+And it supported Chinese and English now, other languages will treat as English.
