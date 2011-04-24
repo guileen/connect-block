@@ -7,11 +7,13 @@
         font-family: Arial;
       }
       #block {
-        font-size: 50px;
+        font-size: 30px;
         text-align: center;
         margin: 20px;
+        padding: 30px;
         background: black;
         color: white;
+        width: 20em;
       }
       a{
         text-decoration:none;
@@ -27,6 +29,7 @@
         overflow: hidden;
         /* top left corner */
         position: absolute;
+        position: fixed;
         /* left: -3em; */
         right: -3em;
         top: 2.5em;
@@ -58,29 +61,45 @@
     <script type="text/javascript" src="prettify.js"></script>
   </head>
   <body onload="prettyPrint()">
+
     <h1>Best browser compatible solution</h1>
-    <p>connect-block is built upon nodejs and connect</p>
+    <p>connect-block is built upon nodejs and connect, use to show below screen to specified browsers.</p>
     <div class="ribbon">
       <a href="https://github.com/guileen/connect-block">Fork me on GitHub!</a>
     </div>
-    <pre class="prettyprint">
-    var block = require('connect-block');
-    connect(
-        block('IE8'), //you can use IE, IE6, IE7, IE8, IE9, IE10 or RegExp
-        function(req, res){
-          res.end('You have passed.');
-        }
-    ).listen(3000);
-    </pre>
-    If you do not browse http://localhost:3000 with IE6-IE8, you will got "You have passed", but if you do you will got the screen below.
+
     <div id="block">
       <p>Sorry! Your browser is not supported.</p>
-      <p style="font-size: 80px">Choose another browser</p>
+      <p style="font-size: 45px">Choose another browser</p>
       <p>
       <a href="http://www.google.com/chrome/">Chrome<!--chrome icon--></a> | 
       <a href="http://www.mozilla.com/en-US/firefox/fx/">Firefox<!--chrome icon--></a> |
       <a href="http://www.apple.com/safari/">Safari<!--chrome icon--></a>
       </p>
     </div>
+
+    <h2>Basic usage</h2>
+    <pre class="prettyprint">
+    var block = require('connect-block');
+    connect(
+        //block IE6, IE7, IE8.
+        block('IE8'),
+        function(req, res){
+          res.end('You have passed.');
+        }
+    ).listen(3000);
+    </pre>
+    <h2>Use with express</h2>
+    <pre class="prettyprint">
+    app.configure(function(){
+        ...
+        // block IE6, IE7, IE8
+        app.use(block('IE8'));
+        app.use(express.bodyParser());
+        app.use(express.methodOverride());
+        ...
+    });
+    </pre>
+    the parameter of block could be 'IE', 'IE6', 'IE7', 'IE8', 'IE9', 'IE10' or 'RegExp'. And the output was localized, currently support Chinese and English. <a href="https://github.com/guileen/connect-block"> Fork on github </a> to make it support more languages and browsers.
   </body>
 </html>
