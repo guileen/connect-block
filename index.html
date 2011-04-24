@@ -54,13 +54,16 @@
         text-shadow: 0 0 0.5em #444;
       }
     </style>
+    <link href="prettify.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="prettify.js"></script>
   </head>
-  <body>
+  <body onload="prettyPrint()">
     <h1>Best browser compatible solution</h1>
+    <p>connect-block is built upon nodejs and connect</p>
     <div class="ribbon">
       <a href="https://github.com/guileen/connect-block">Fork me on GitHub!</a>
     </div>
-    <pre>
+    <pre class="prettyprint">
     var block = require('connect-block');
     connect(
         block('IE8'), //you can use IE, IE6, IE7, IE8, IE9, IE10 or RegExp
