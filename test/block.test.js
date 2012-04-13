@@ -60,7 +60,7 @@ describe('connnect-block', function(){
         it('should match any', function(done) {
             var middleware = block({agent: ['google', 'baidu', 'IE6'], text:'Goodbye'});
 
-            testBlock(middleware, 'googlebot(at)googlebot.com', 'Goodbye');
+            testBlock(middleware, 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 'Goodbye');
             testBlock(middleware, 'Baiduspider', 'Goodbye');
             testBlock(middleware, 'blabla MSIE 6 blabla', 'Goodbye');
             testPass(middleware, 'Firefox', done)
