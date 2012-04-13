@@ -6,6 +6,7 @@ A middleware for [connect](https://github.com/senchalabs/connect)
     var block = require('connect-block');
     connect(
         block('IE8'), //you can use IE, IE6, IE7, IE8, IE9, IE10 or RegExp
+        block({agent: ['google'], text: 'Goodbye'), // block google bot
         function(req, res){
           res.end('You have passed.');
         }
