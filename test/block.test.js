@@ -54,7 +54,7 @@ describe('connnect-block', function(){
 
         it('should match google', function(done) {
             var middleware = block({agent:'google', text:'Goodbye'});
-            testBlock(middleware, 'googlebot(at)googlebot.com', 'Goodbye', done)
+            testBlock(middleware, 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 'Goodbye', done)
         });
 
         it('should match any', function(done) {
