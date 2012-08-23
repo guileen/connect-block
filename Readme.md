@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/guileen/connect-block.png)](http://travis-ci.org/guileen/connect-block)
 Best browser compatible solution!
 ========
 
